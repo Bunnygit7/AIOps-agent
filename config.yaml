@@ -1,0 +1,8 @@
+training:
+  window_minutes: 180
+  min_records: 50
+  contamination: 0.05
+  rolling_window: 5
+
+scheduler:
+  retrain_interval_seconds: 900
