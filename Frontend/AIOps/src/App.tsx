@@ -686,6 +686,11 @@ import {
 } from "@mui/material";
 import MetricCard from "./components/MetricCard";
 
+/* ===================== CONFIG ===================== */
+
+const BACKEND_URL = "http://localhost:9092"
+
+
 /* ===================== THEME ===================== */
 
 const COLORS = {
@@ -727,6 +732,7 @@ type Incident = {
   logs: string[];
 };
 
+
 /* ===================== APP ===================== */
 
 export default function App() {
@@ -756,7 +762,7 @@ export default function App() {
   /* ===================== LOAD SERVICES ===================== */
 
   useEffect(() => {
-    axios.get<string[]>("http://localhost:9092/services").then((res) => {
+      axios.get<string[]>(`${BACKEND_URL}/services`).then((res) => {
       setServices(res.data);
       if (res.data.length > 0) {
         setService(res.data[0]);
@@ -770,7 +776,7 @@ export default function App() {
     if (!service) return;
 
     const res = await axios.get<MetricsResponse>(
-      `http://localhost:9092/metrics?service=${service}`
+      `${BACKEND_URL}/metrics?service=${service}`
     );
 
     setMetrics(res.data);
@@ -793,7 +799,7 @@ export default function App() {
       if (updated[id]) return;
 
       const logsRes = await axios.get(
-        `http://localhost:9092/logs?service=${service}&event_ts=${eventTs}`
+        `${BACKEND_URL}/logs?service=${service}&event_ts=${eventTs}`
       );
 
       updated[id] = {
