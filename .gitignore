@@ -1,0 +1,6 @@
+.env
+train.py
+screenshots
+__pycache__
+train2.py
+app.py
