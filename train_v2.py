@@ -10,9 +10,6 @@ from feature_engineering import build_features
 # joblib
 
 
-# ---------------- TIME CALCULATION EXAMPLE ----------------
-
-# 2026-01-01 12:52:28.938 - 2026-02-04T18:43:58.528000 = (minutes) 49920 minutes
 # ---------------- CONFIG ----------------
 
 BASE_DATASET_DIR = "datasets"
@@ -20,7 +17,7 @@ BASE_MODEL_DIR = "models"
 
 METRICS = ["cpu", "mem", "lat"]
 
-ROLLING_DAYS = 2        # training window    # TODO: change to 2 
+ROLLING_DAYS = 2        # training window   
 MIN_SAMPLES = 200       # safety guard
 CONTAMINATION = 0.05    # anomaly ratio
 
