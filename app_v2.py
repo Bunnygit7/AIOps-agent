@@ -338,7 +338,7 @@ def get_logs(service: str, event_ts: str):
     print(f"[LOG REQUEST] Found {len(results)} log entries.")
     return {"logs": results[::-1]}
 
-#to run the app using: python -m uvicorn app2:app --host 0.0.0.0 --port 9092 --reload
+#to run the app using: python -m uvicorn app_v2:app --host 0.0.0.0 --port 9092 --reload
  # in cloud setup, use: uvicorn app2:app --host
 
 # pip install -r requirements.txt
